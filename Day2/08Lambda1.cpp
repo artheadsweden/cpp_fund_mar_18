@@ -20,7 +20,10 @@ int main()
 
     [](){cout << "hi" << endl;}();
 
-    auto f = [](int p){return [p](int b){return p * b};};
+    auto f = [](int p){
+        return [&](int b)
+        {return p * b;};
+    };
     auto a = f(2);
     cout << a(3) <<endl;
     cout << a(4) << endl;
